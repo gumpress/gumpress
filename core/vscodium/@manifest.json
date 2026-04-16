@@ -1,0 +1,66 @@
+[
+	{
+		"website": "https://vscodium.com/",
+		"package": "VSCodium-win32-x64-1.108.10359.zip",
+		"sources": "https://github.com/VSCodium/vscodium/releases",
+		"updated": "20260128",
+		"changes": {
+			"changed": {
+				"key": [ "resources/app/product.json", "vscodium.exe" ],
+				"why": [ "Deleted checksums content to fix improper corrupted installation message and splitted vscodium.exe into <50MB chunks (vscodium.exe.nnn) to bypass GitHub limits; repacked during first run" ]
+			},
+			"plugged": {
+				"key": [ "resources/app/extensions/xdebug.php-debug-1.37.0-universal", "resources/app/extensions/humao.rest-client-0.25.0-universal", "resources/app/extensions/gumpress-wp-execute", "resources/app/extensions/gumpress-eml-view" ],
+				"why": [ "Plugged system extensions to support GumPress services robustly" ]
+			}
+		},
+		"⚖️ license": [
+			"MIT License | https://github.com/VSCodium/vscodium/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug",
+		"package": "",
+		"sources": "",
+		"updated": "20251215",
+		"changes": {
+		},
+		"⚖️ license": [
+			"MIT License | https://marketplace.visualstudio.com/items/xdebug.php-debug/license",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://marketplace.visualstudio.com/items?itemName=humao.rest-client",
+		"package": "",
+		"sources": "",
+		"updated": "20260213",
+		"changes": {
+			"changed": {
+				"key": [ "resources/app/extensions/humao.rest-client-0.25.0-universal/package.json" ],
+				"why": [ "Changed rest-client.enableTelemetry value to false for convenience" ]
+			}
+		},
+		"⚖️ license": [
+			"MIT License | https://marketplace.visualstudio.com/items/humao.rest-client/license",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://github.com/postalsys/postal-mime/",
+		"package": "npm install postal-mime",
+		"sources": "npm",
+		"updated": "20260224",
+		"changes": {
+		},
+		"⚖️ license": [
+			"MIT License | https://github.com/postalsys/postal-mime/blob/master/LICENSE.txt",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

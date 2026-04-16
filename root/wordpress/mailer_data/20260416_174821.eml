@@ -1,0 +1,25 @@
+To: admin@example.com
+Subject: New WordPress Site
+Date: Thu, 16 Apr 2026 15:48:20 +0000
+From: WordPress <wordpress@wordpress.gp>
+Message-ID: <8DUMcrKRW9Mjenz9IYqBouBtdDyMR1paq7SsESBG3E@wordpress.gp>
+X-Mailer: PHPMailer 7.0.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Your new WordPress site has been successfully set up at:
+
+https://wordpress.gp
+
+You can log in to the administrator account with the following information:
+
+Username: root
+Password: The password you chose during installation.
+Log in here: https://wordpress.gp/wp-login.php
+
+We hope you enjoy your new site. Thanks!
+
+--The WordPress Team
+https://wordpress.org/
+
+

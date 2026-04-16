@@ -1,0 +1,21 @@
+[
+	{
+		"website": "https://github.com/abbodi1406/vcredist/",
+		"package": "VisualCppRedist_AIO_x86_x64_103.zip",
+		"sources": "https://github.com/abbodi1406/vcredist/releases",
+		"updated": "20260310",
+		"changes": {
+			"removed": {
+				"key": [
+					"**/** except visualcppredist_aio_x86_x64/2026/x64/system64"
+				],
+				"why": [ "Removed unnecessary files to reduce package size" ]
+			}
+		},
+		"⚖️ license": [
+			"Unlicense | https://github.com/abbodi1406/vcredist/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

@@ -1,0 +1,13 @@
+{
+	"bookmark_bar": {
+		"show_on_all_tabs": false
+	},
+	"browser": {
+		"theme": {
+			"follows_system_colors": false,
+			"color_scheme2": 0,
+			"color_variant2": 1,
+			"user_color2": -7558172
+		}
+	}
+}

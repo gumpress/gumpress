@@ -1,0 +1,14 @@
+{
+	"workbench.startupEditor": "none",
+	"search.quickOpen.includeHistory": false,
+	"update.showReleaseNotes": false,
+	"update.mode": "none",
+	"workbench.enableExperiments": false,
+	"workbench.settings.enableNaturalLanguageSearch": false,
+	"extensions.autoUpdate": false,
+	"extensions.autoCheckUpdates": false,
+	"npm.fetchOnlinePackageInfo": false,
+	"json.schemaDownload.enable": false,
+	"workbench.colorTheme": "Default Dark Modern",
+	"telemetry.telemetryLevel": "off"
+}

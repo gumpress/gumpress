@@ -1,0 +1,52 @@
+TELEMETRY AND DATA USAGE
+Version 1.0
+
+Copyright © 2025-Present GumPress
+All rights reserved.
+
+Overview
+GumPress collects basic, anonymous technical telemetry to track version adoption.
+We are committed to transparency and respect for user privacy.
+
+What We Collect
+Our software performs an automatic, anonymous "heartbeat" request to our telemetry server upon startup.
+This request contains exactly two pieces of information:
+
+  - GUID: a unique identifier derived locally from your GumPress’s cryptographic identity.
+    This identifier is not linked to any user identity, account, IP address, or personal metadata.
+    It is calculated using the thumbprint of the [ GumPress Local Root CA ] created when you first run GumPress.
+    It allows us to distinguish between different machines running the software.
+
+  - VERS: the specific version of the GumPress Orchestrator you are currently running.
+
+Data Control
+The GUID is calculated using the thumbprint of the [ GumPress Local Root CA ] created when you first run GumPress.
+You have full control over this identifier.
+You can reset it at any time by removing the [ GumPress Local Root CA ] certificate from your Windows
+Certificate Store (found under Current User > Trusted Root Certification Authorities).
+Upon the next launch, GumPress will detect the absence of the CA, trigger the generation of a new CA and
+consequently assign a fresh, unique GUID, effectively starting the anonymous tracking cycle anew.
+
+How the Data is Transferred
+The data is sent via an anonymous HTTPS GET request to our telemetry endpoint, using the following format:
+
+  curl -s -o NUL "https://tracker.gumpress-team.workers.dev/track?g={GUID}&v={VERS}&r={RAND}"
+
+where the &r={RAND} parameter is used to prevent caching issues.
+
+What We Do NOT Collect
+To ensure full privacy, we explicitly do not collect:
+  - Personally Identifiable Information (PII) such as your name, email, or username.
+  - Hardware-specific identifiers (MAC addresses, motherboard serials, etc.).
+  - Any data related to your local projects, files, or custom configurations.
+  - IP addresses or location data: although our server technically receives your
+    IP address as part of any HTTP request, we explicitly do not log, store,
+    or process it in any way.
+
+Purpose
+The collected data is used solely(!) for understanding how many active installations of GumPress exist.
+
+Data Retention
+The data is stored purely for statistical analysis.
+Because data are disconnected from any personal information, it is impossible for us to reverse-engineer
+or identify an individual user from these logs.

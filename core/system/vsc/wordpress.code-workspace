@@ -1,0 +1,43 @@
+{
+	"folders": [
+		@FOLDERS@ // Path relative to this file or absolute
+	],
+	"settings": {
+		"editor.tabSize": 3,
+		"editor.insertSpaces": false,
+		"git.openRepositoryInParentFolders": "never",
+		"git.autofetch": null,
+		"php.validate.executablePath": "..\\..\\core\\php\\php.exe", // Path relative to "folders.path" (see before)
+		"php.executablePath": "..\\php\\php.exe", // Path relative to vscodium.exe
+		"php.suggest.basic": true,
+		"files.exclude": {
+			".git": true,
+			".gitignore": true,
+			"stored_data": true,
+			"@manifest.json": true
+		},
+		"files.associations": {
+			"*.module": "php"
+		},
+		"rest-client.defaultHeaders": {
+			"X-GumPress-Auth": @X-GUMPRESS-AUTH@
+		}
+	},
+	"extensions": {
+		"recommendations": [
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "WordPress  ",
+				"type": "php",
+				"request": "launch",
+				"port": @XDEBUG-PORT@,
+			// "maxConnections": 1,
+				"log": false
+			}
+		]
+	}
+}

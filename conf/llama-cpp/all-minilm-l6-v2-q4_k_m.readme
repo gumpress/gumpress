@@ -1,0 +1,18 @@
+************************************************************************************************************************
+* DETAILS
+************************************************************************************************************************
+
+Product       : all-MiniLM-L6-v2 (Quantized GGUF version)
+Original Model: Developed by Sentence-Transformers (https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+Quantization  : Performed by https://huggingface.co/Jarbas using llama.cpp.
+Format        : GGUF (Method: Q4_K_M)
+Download      : https://huggingface.co/Jarbas/all-MiniLM-L6-v2-Q4_K_M-GGUF/blob/main/all-minilm-l6-v2-q4_k_m.gguf
+Note          : Model file is present only in GitHub Releases due to its size
+
+************************************************************************************************************************
+* LICENSE
+************************************************************************************************************************
+
+Licensed under the Apache License, Version 2.0 (the "License").
+You may obtain a copy of the License at: http://www.apache.org/licenses/LICENSE-2.0
+This distribution includes the model weights provided under the original Apache 2.0 license.

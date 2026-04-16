@@ -1,0 +1,49 @@
+[
+	{
+		"website": "https://www.adminer.org/",
+		"package": "adminer-5.4.2-en.php (english only)",
+		"sources": "https://www.adminer.org/en/#download",
+		"updated": "20260218",
+		"changes": {
+			"changed": {
+				"key": [ "line 1065 < login($Te,$F){if($F==\"\")return > with < login($Te,$F){if($F==\"none\")return >" ],
+				"why": [ "Changed login function to enable passwordless database account" ]
+			}
+		},
+		"⚖️ license": [
+			"Apache License 2.0 or GPL v2 | https://github.com/vrana/adminer/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://swagger.io/tools/swagger-ui/",
+		"package": "*.*",
+		"origin": "https://github.com/swagger-api/swagger-ui/tree/master/dist",
+		"updated": "20251215",
+		"changes": {
+		},
+		"⚖️ license": [
+			"Apache License 2.0 | https://github.com/swagger-api/swagger-ui/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://github.com/moon0326/wp-openapi/",
+		"package": "wp-openapi.zip",
+		"origin": "https://github.com/moon0326/wp-openapi/releases",
+		"updated": "20260218",
+		"changes": {
+			"created": {
+				"key": [ "index.php" ],
+				"why": [ "Implements a bridge between SwaggerUI and wp-openapi" ]
+			}
+		},
+		"⚖️ license": [
+			"GPL v3 | https://www.gnu.org/licenses/gpl-3.0.html",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

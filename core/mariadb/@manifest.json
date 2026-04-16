@@ -1,0 +1,44 @@
+[
+	{
+		"website": "https://mariadb.org/",
+		"package": "mariadb-10.6.24-winx64.zip",
+		"sources": "https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.6.24&os=windows&cpu=x86_64&pkg=zip",
+		"updated": "20251215",
+		"changes": {
+			"removed": {
+				"key": [
+					"**/*.pdb",
+					"**/*.lib",
+					"**/mariadb*",
+					"**/aria*",
+					"**/myisam*",
+					"include/**",
+					"lib/**",
+					"share/** except share/english, mariadb_system_tables.sql, mariadb_system_tables_data.sql",
+					"bin/concrt140.dll",
+					"bin/msvcp140*.dll",
+					"bin/vcruntime140*.dll",
+					"bin/mbstream.exe",
+					"bin/innochecksum.exe",
+					"bin/my_print_defaults.exe",
+					"bin/myrocks_hotbackup",
+					"bin/mysqlshow.exe",
+					"bin/mysqlslap.exe",
+					"bin/perror.exe",
+					"bin/replace.exe",
+					"bin/sst_dump.exe",
+					"bin/mysqlcheck.exe",
+					"bin/mysqlbinlog.exe",
+					"bin/mysql_upgrade_service.exe",
+					"bin/mysql_upgrade_wizard.exe"
+				],
+				"why": [ "Removed unnecessary files to reduce package size" ]
+			}
+		},
+		"⚖️ license": [
+			"GPL v2 | https://github.com/MariaDB/server/blob/main/COPYING",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

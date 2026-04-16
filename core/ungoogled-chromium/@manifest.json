@@ -1,0 +1,19 @@
+[
+	{
+		"website": "https://ungoogled-software.github.io/",
+		"package": "ungoogled-chromium_144.0.7559.96-1.1_windows_x64.zip",
+		"sources": "https://ungoogled-software.github.io/ungoogled-chromium-binaries/releases/windows/64bit/144.0.7559.96-1/",
+		"updated": "20260128",
+		"changes": {
+			"changed": {
+				"key": [ "chrome.dll" ],
+				"why": [	"Splitted chrome.dll into <50MB chunks (chrome.dll.nnn) to bypass GitHub limits; repacked during first run" ]
+			}
+		},
+		"⚖️ license": [
+			"BSD 3-Clause | https://github.com/ungoogled-software/ungoogled-chromium/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

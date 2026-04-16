@@ -1,0 +1,28 @@
+[
+	{
+		"id": "1",
+		"website": "https://github.com/ggml-org/llama.cpp/",
+		"package": "llama-b8708-bin-win-vulkan-x64.zip",
+		"origin": "https://github.com/ggml-org/llama.cpp/releases/",
+		"updated": "20260408",
+		"changes": {
+			"removed": {
+				"key": [
+					"**/*.exe except llama-server.exe"
+				],
+				"why": [ "Removed unnecessary files to reduce package size" ]
+			},
+			"changes": {
+				"changed": {
+					"key": [ "ggml-vulkan.dll" ],
+					"why": [ "Splitted ggml-vulkan.dll into <50MB chunks (ggml-vulkan.dll.nnn) to bypass GitHub limits; repacked during first run" ]
+				}
+			}
+		},
+		"⚖️ license": [
+			"MIT License | https://github.com/ggml-org/llama.cpp/blob/master/licenses/LICENSE-jsonhpp",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

@@ -1,0 +1,14 @@
+### Query Settings
+
+GET https://wordpress.gp/wp-json/wp/v2/settings
+
+### Write Contents
+
+POST https://wordpress.gp/wp-json/wp/v2/posts
+Content-Type: application/json
+
+{
+	"title": "Dummy Post Title",
+	"content": "Dummy post content created from .http script",
+	"status": "publish"
+}
