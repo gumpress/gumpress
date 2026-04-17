@@ -22,16 +22,16 @@ Just unzip and start. Whenever you want: tinker, customize, rezip, and redistrib
 ## Get Started
 
 1. [**Download the latest release**](https://github.com/gumpress/gumpress/releases/latest) and extract it to a folder of your choice.
-2. Launch **`gumpress.exe`** to start the environment.
+2. Launch the orchestrator (`gumpress.exe`) to start the environment.
 3. Say "Wow!" 🤯 You're now ready to tinker.
 4. Check the [**Changelog**](docs/changelog.md) to see what's new in this release.
 
 > [!TIP]
-> ❤️ **Finding GumPress useful?** Consider [supporting this project](docs/support.md).
+> ❤️ **Finding&nbsp;GumPress&nbsp;useful&nbsp;?**&nbsp;Consider&nbsp;[supporting&nbsp;this&nbsp;project](docs/support.md).
 
 ## Integrity
 
-GumPress prioritizes transparency. You can verify the core executable's integrity by comparing its **SHA&#8209;256 Hash** with the one
+GumPress prioritizes transparency. You can verify the orchestrator (`gumpress.exe`) integrity by comparing its **SHA&#8209;256 Hash** with the one
 calculated on your local file using PowerShell `Get-FileHash gumpress.exe -Algorithm SHA256`.
 
 <table>
@@ -71,6 +71,61 @@ Due to our free redistribution policy, we cannot track adoption without a minima
 
 📜 For a detailed technical breakdown about telemetry, see the full [**PRIVACY**](./PRIVACY) file.
 
+## License
+
+GumPress is a software bundle that combines a proprietary management engine (**Orchestrator**) with several independent open-source components (**Third-Party**).
+
+### 1. Orchestrator
+
+The orchestrator (`gumpress.exe`) is licensed under the **GumPress Software License 1.0**.
+* **Usage**: Free to use, configure, and distribute for personal or commercial development.
+* **Main Restrictions**: Standalone resale and reverse engineering are prohibited. It is not designed for production environments.
+* **Full Terms**: See the [**LICENSE**](./LICENSE) file.
+
+### 2. Third-Party
+
+The third-party components are separate works governed by their own original open-source licenses. Orchestrator license does not modify or restrict your rights under those terms.
+For details about versions, licenses, and applied changes, refer to the technical manifests:
+
+<table>
+	<tr>
+		<td><b>WordPress</b></td>
+		<td><a href="root/@manifest.json">root/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>Apache</b></td>
+		<td><a href="core/apache/@manifest.json">core/apache/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>PHP</b></td>
+		<td><a href="core/php/@manifest.json">core/php/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>MariaDB</b></td>
+		<td><a href="core/mariadb/@manifest.json">core/mariadb/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>LlamaCpp</b></td>
+		<td><a href="core/llama-cpp/@manifest.json">core/llama-cpp/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>Ungoogled-Chromium</b></td>
+		<td><a href="core/ungoogled-chromium/@manifest.json">core/ungoogled-chromium/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>VSCodium</b></td>
+		<td><a href="core/vscodium/@manifest.json">core/vscodium/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>Git</b></td>
+		<td><a href="core/git/@manifest.json">core/git/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>System</b></td>
+		<td><a href="core/system/@manifest.json">core/system/@manifest.json</a></td>
+	</tr>
+</table>
+
 ## Project Structure
 
 This is how the GumPress environment is organized after extraction:
@@ -92,11 +147,6 @@ gumpress.exe            ← The main launcher
 gumpress.ini            ← The main configuration file
 ```
 
-## License
-
-GumPress is distributed under GumPress Software License 1.0 and is free to use, configure, and distribute; see the full [**LICENSE**](./LICENSE) file for details on third-party components.
-<br>
-If you find this project useful [consider supporting](docs/support.md) its development.
-
 ---
+
 *Built with passion for the WordPress community.*
