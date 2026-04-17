@@ -31,19 +31,19 @@ Just unzip and start. Whenever you want: tinker, customize, rezip, and redistrib
 
 ## Integrity
 
-GumPress prioritizes transparency. You can verify the core executable's integrity by comparing its SHA&#8209;256 hash with one
+GumPress prioritizes transparency. You can verify the core executable's integrity by comparing its **SHA&#8209;256 Hash** with the one
 calculated on your local file using PowerShell `Get-FileHash gumpress.exe -Algorithm SHA256`.
 
 <table>
   <tr>
 	 <td><b>File</b></td>
 	 <td><code>gumpress.exe</code></td>
-  </tr>
-  <tr>
-	 <td><b>SHA-256 Hash</b></td>
+	 <td><b>Hash</b></td>
 	 <td><code><!--HASH-->25e5105431e9d5e5fec7d04a01f2cdfdedef839e01fdb0e72f7f10393076b9fe<!--HASH--></code></td>
   </tr>
 </table>
+
+## Security
 
 > [!IMPORTANT]
 > Windows might display SmartScreen and/or CA Security warnings during the **first run**.
