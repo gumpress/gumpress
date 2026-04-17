@@ -61,15 +61,15 @@ calculated on your local file using PowerShell `Get-FileHash gumpress.exe -Algor
 
 </details>
 
-## Telemetry & Privacy
+## Privacy
 
 Due to our free redistribution policy, we cannot track adoption without a minimal heartbeat. We are committed to transparency and respect for user privacy.
 
 * **What we collect**: Only an anonymous ID (GUID) and the version number (VERS).
 * **Privacy First**: We do NOT collect personal info, hardware identifiers, or any data from your machine, user profile, or local projects.
-* **Full Control**: The anonymous ID is not linked to your identity, and you can reset it at any time.
+* **Full Control**: The anonymous ID is locally generated, is not linked to your identity, and you can reset it at any time.
 
-📜 For a detailed technical breakdown, see the full [**policies.txt**](./policies.txt) file.
+📜 For a detailed technical breakdown about telemetry, see the full [**PRIVACY**](./PRIVACY) file.
 
 ## Project Structure
 
@@ -94,7 +94,7 @@ gumpress.ini            ← The main configuration file
 
 ## License
 
-GumPress is distributed under GumPress Software License 1.0 and is free to use, configure, and distribute; see the full [**licenses.txt**](./licenses.txt) file for details on third-party components.
+GumPress is distributed under GumPress Software License 1.0 and is free to use, configure, and distribute; see the full [**LICENSE**](./LICENSE) file for details on third-party components.
 <br>
 If you find this project useful [consider supporting](docs/support.md) its development.
 
