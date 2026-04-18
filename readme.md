@@ -39,7 +39,7 @@ calculated on your local file using PowerShell `Get-FileHash gumpress.exe -Algor
 	 <td><b>File</b></td>
 	 <td><code>gumpress.exe</code></td>
 	 <td><b>Hash</b></td>
-	 <td><code><!--HASH-->25e5105431e9d5e5fec7d04a01f2cdfdedef839e01fdb0e72f7f10393076b9fe<!--HASH--></code></td>
+	 <td><code><!--HASH-->3dfd8cc0ea0f25165b8ba7437931fbffeb8c4ac4314123e1eaf2086d1e237bea<!--HASH--></code></td>
   </tr>
 </table>
 
