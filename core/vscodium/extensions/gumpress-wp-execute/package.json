@@ -1,0 +1,33 @@
+{
+	"name": "gumpress-wp-execute",
+	"displayName": "【⚡Trigger WP Execute 】",
+	"description": "GumPress",
+	"version": "1.0.0",
+	"publisher": "GumPress",
+	"license": "MIT",
+	"engines": {
+		"vscode": "1.0.0"
+	},
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "gumpressButtonExecute.run",
+				"title": "Click To Start",
+				"shortTitle": "【⚡Trigger WP Execute 】"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "gumpressButtonExecute.run",
+					"when": "gumpressButtonExecute.isValid",
+					"group": "navigation@1"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,75 @@
+[
+	{
+		"website": "https://www.php.net",
+		"package": "php-8.3.28-win32-vs16-x64.zip",
+		"sources": "https://www.php.net/downloads.php",
+		"updated": "20251215",
+		"changes": {
+			"removed": {
+				"key": [ "**/*.pdb", "**/*.lib" ],
+				"why": [ "Removed unnecessary files to reduce package size" ]
+			}
+		},
+		"⚖️ license": [
+			"The PHP License v3.01 | https://github.com/php/php-src/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://xdebug.org/",
+		"package": "php_xdebug-3.5.0-8.3-ts-vs16-x86_64.dll",
+		"sources": "https://xdebug.org/download",
+		"updated": "20251215",
+		"changes": {
+		},
+		"⚖️ license": [
+			"The Xdebug License v1.03 | https://github.com/xdebug/xdebug/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://pecl.php.net/package/imagick",
+		"package": "php_imagick-3.8.0-8.3-ts-vs16-x64.zip",
+		"sources": "https://pecl.php.net/package/imagick/3.8.0/windows",
+		"updated": "20251215",
+		"changes": {
+			"removed": {
+				"key": [ "**/*.pdb", "**/*.lib" ],
+				"why": [ "Removed unnecessary files to reduce package size" ]
+			}
+		},
+		"⚖️ license": [
+			"ImageMagick License | https://imagemagick.org/script/license.php",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://wp-cli.org/",
+		"package": "wp-cli.phar",
+		"sources": "https://wp-cli.org/#installing",
+		"updated": "20251215",
+		"changes": {
+		},
+		"⚖️ license": [
+			"MIT License | https://github.com/wp-cli/wp-cli/blob/main/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://getcomposer.org/",
+		"package": "composer.phar 2.8.11",
+		"sources": "https://getcomposer.org/download/",
+		"updated": "20251215",
+		"changes": {
+		},
+		"⚖️ license": [
+			"MIT License | https://github.com/composer/composer/blob/main/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

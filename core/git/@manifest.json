@@ -1,0 +1,23 @@
+[
+	{
+		"website": "https://git-scm.com/",
+		"package": "portablegit-2.53.0-64-bit.7z.exe",
+		"sources": "https://git-scm.com/downloads/win/",
+		"updated": "20251215",
+		"changes": {
+			"removed": {
+				"key": [ "**/mingw64/share/doc/**" ],
+				"why": [ "Removed unnecessary files to reduce package size" ]
+			},
+			"changed": {
+				"key": [ "etc/profile.d/git-prompt.sh" ],
+				"why": [ "Changed git-prompt.sh to define custom prompt and aliases" ]
+			}
+		},
+		"⚖️ license": [
+			"GPL v2 | https://github.com/git/git/blob/master/COPYING/",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

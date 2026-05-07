@@ -1,0 +1,33 @@
+[
+	{
+		"website": "https://httpd.apache.org",
+		"package": "httpd-2.4.66-260107-Win64-VS18.zip",
+		"sources": "https://www.apachelounge.com/download/",
+		"updated": "20260128",
+		"changes": {
+			"removed": {
+				"key": [
+					"**/*.pdb",
+					"**/*.lib",
+					"**/*.pl",
+					"include/**",
+					"htdocs/**",
+					"icons/**",
+					"lib/**",
+					"cgi-bin/**",
+					"logs/**",
+					"conf/httpd.conf",
+					"bin/ab.exe",
+					"bin/abs.exe",
+					"bin/ApacheMonitor.exe"
+				],
+				"why": [ "Removed unnecessary files to reduce package size" ]
+			}
+		},
+		"⚖️ license": [
+			"Apache License 2.0 | https://www.apache.org/licenses/LICENSE-2.0",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

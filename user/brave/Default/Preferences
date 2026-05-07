@@ -1,0 +1,42 @@
+{
+	"accessibility": {
+		"captions": {
+			"headless_caption_enabled": false
+		}
+	},
+	"bookmark_bar": {
+		"show_on_all_tabs": true
+	},
+	"brave": {
+		"ai_chat": {
+			"show_toolbar_button": false
+		},
+		"brave_vpn": {
+			"show_button": false
+		},
+		"cosmetic_filtering_migration": true,
+		"dark_mode_migrated": true,
+		"rewards": {
+			"show_brave_rewards_button_in_location_bar": false
+		},
+		"show_side_panel_button": false,
+		"speedreader": {
+			"feature_enabled": false
+		},
+		"enable_window_closing_confirm": false,
+		"wallet": {
+			"show_wallet_icon_on_toolbar": false
+		}
+	},
+	"extensions": {
+		"alerts": {
+			"initialized": true
+		},
+		"external_uninstalls": [
+			"fheoggkfdfchfphceeifdbepaooicaho"
+		]
+	},
+	"intl": {
+		"selected_languages": "en-US,en"
+	}
+}

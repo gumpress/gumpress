@@ -1,0 +1,32 @@
+{
+	"name": "gumpress-eml-view",
+	"displayName": "EML Preview",
+	"description": "Open .eml files in a Webview that shows Hello World",
+	"version": "0.0.1",
+	"publisher": "your-name",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./extension.js",
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "emlpreview.viewer",
+				"displayName": "EML Viewer",
+				"selector": [
+					{
+						"filenamePattern": "*.eml"
+					}
+				],
+				"priority": "default"
+			}
+		]
+	},
+	"dependencies": {
+		"postal-mime": "^2.7.3"
+	}
+}

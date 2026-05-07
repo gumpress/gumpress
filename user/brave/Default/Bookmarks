@@ -1,0 +1,67 @@
+{
+   "roots": {
+      "bookmark_bar": {
+         "children": [
+            {
+               "guid": "2b56aa2d-3a9b-4e34-b55b-4290b04658b2",
+               "id": "4",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "HOME",
+               "type": "url",
+               "url": "javascript:postMessage('ᐅhttps://wordpress.test/wp-admin/','*')"
+            },
+            {
+               "guid": "5c2881bc-a12f-4966-8661-301debb1d440",
+               "id": "5",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "CODE",
+               "type": "url",
+               "url": "javascript:postMessage('ᐅhttps://code.wordpress.test/?workspace=/B:/core/(+work+)/conf/wordpress.code-workspace','*')"
+            },
+            {
+               "guid": "048e330a-177c-456c-9e76-a85e12119867",
+               "id": "6",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "ADMINER",
+               "type": "url",
+               "url": "javascript:postMessage('ᐅhttps://wordpress.test/!/adminer/','*')"
+            },
+            {
+               "guid": "7c525f4c-e34a-49b8-9182-befdbcad24ff",
+               "id": "7",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "SWAGGER",
+               "type": "url",
+               "url": "javascript:postMessage('ᐅhttps://wordpress.test/!/swagger/','*')"
+            }
+         ],
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [],
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

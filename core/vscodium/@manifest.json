@@ -1,0 +1,66 @@
+[
+	{
+		"website": "https://vscodium.com/",
+		"package": "vscodium-reh-web-win32-x64-1.112.01907.tar.gz",
+		"sources": "https://github.com/VSCodium/vscodium/releases",
+		"updated": "20260422",
+		"changes": {
+			"removed": {
+				"key": [ "resources/server/manifest.json" ],
+				"why": [ "Removed to prevent the 'Install as PWA' button from appearing" ]
+			},
+			"created": {
+				"key": [ "wordpress.code-workspace" ],
+				"why": [ "Created to configure the workspace for WordPress development" ]
+			}
+		},
+		"⚖️ license": [
+			"MIT License | https://github.com/VSCodium/vscodium/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug",
+		"package": "",
+		"sources": "",
+		"updated": "20251215",
+		"changes": {
+		},
+		"⚖️ license": [
+			"MIT License | https://marketplace.visualstudio.com/items/xdebug.php-debug/license",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://marketplace.visualstudio.com/items?itemName=humao.rest-client",
+		"package": "",
+		"sources": "",
+		"updated": "20260213",
+		"changes": {
+			"changed": {
+				"key": [ "resources/app/extensions/humao.rest-client-0.25.0-universal/package.json" ],
+				"why": [ "Changed 'rest-client.enableTelemetry' default value to false for convenience" ]
+			}
+		},
+		"⚖️ license": [
+			"MIT License | https://marketplace.visualstudio.com/items/humao.rest-client/license",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	},
+	{
+		"website": "https://github.com/postalsys/postal-mime/",
+		"package": "npm install postal-mime",
+		"sources": "npm",
+		"updated": "20260224",
+		"changes": {
+		},
+		"⚖️ license": [
+			"MIT License | https://github.com/postalsys/postal-mime/blob/master/LICENSE.txt",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

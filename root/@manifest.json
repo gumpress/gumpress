@@ -1,0 +1,15 @@
+[
+	{
+		"website": "https://wordpress.org/",
+		"package": "wordpress-7.0-rc2.zip",
+		"sources": "https://wordpress.org/download",
+		"updated": "20260404",
+		"changes": {
+		},
+		"⚖️ license": [
+			"GPL v2 | https://wordpress.org/about/license/",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

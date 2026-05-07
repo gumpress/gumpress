@@ -1,0 +1,1 @@
+powershell -Command "Get-WinEvent -LogName 'Microsoft-Windows-CodeIntegrity/Operational' | Where-Object {$_.Id -in @(3076, 3077)} | Select-Object TimeCreated, Message | Format-List"

@@ -1,0 +1,19 @@
+[
+	{
+		"website": "https://github.com/brave/brave-browser/",
+		"package": "brave-v1.89.145-win32-x64.zip",
+		"sources": "https://github.com/brave/brave-browser/releases/tag/v1.89.145",
+		"updated": "20260506",
+		"changes": {
+			"changed": {
+				"key": [ "chrome.dll" ],
+				"why": [ "Splitted chrome.dll into <50MB chunks (chrome.dll.nnn) to bypass GitHub limits; repacked during first run" ]
+			}
+		},
+		"⚖️ license": [
+			"MPL 2.0 | https://github.com/brave/brave-browser/blob/master/LICENSE",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]
