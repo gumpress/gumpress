@@ -6,14 +6,14 @@ Designed natively for Windows.
 
 ## Get Started
 
-1. [Download the latest release](https://github.com/gumpress/gumpress/releases/latest) and extract it to a folder of your choice.
-2. Launch the orchestrator (`gumpress.exe`) to start the environment.
-3. Say "Wow!" 🤯 You're now ready to tinker.
-4. Check the [releases](https://github.com/gumpress/gumpress/releases) page for the full changelog.
+1. [Download the latest release](https://github.com/gumpress/gumpress/releases/latest) and extract it to a folder of your choice
+2. Launch the orchestrator (`gumpress.exe`) to start the environment
+3. Say "Wow!" 🤯 You're now ready to tinker
+4. Check the [releases](https://github.com/gumpress/gumpress/releases) page for the full changelog
 
 > [!TIP]
-> 📧 **Questions?** Contact us at [gumpress.team@gmail.com](mailto:gumpress.team@gmail.com).<br>
-> ❤️ **Finding&nbsp;GumPress&nbsp;useful&nbsp;?**&nbsp;Consider&nbsp;[supporting&nbsp;this&nbsp;project](docs/support.md).
+> 📧 **Questions?** Contact us at [gumpress.team@gmail.com](mailto:gumpress.team@gmail.com)<br>
+> ❤️ **Finding&nbsp;GumPress&nbsp;useful&nbsp;?**&nbsp;Consider&nbsp;[supporting&nbsp;this&nbsp;project](docs/support.md)
 
 ## Learn More
 
@@ -29,9 +29,9 @@ Just unzip and start. Whenever you want: tinker, customize, rezip, and redistrib
 </p>
 <br>
 
-- **[Vision & Goals](docs/vision_goals.md)** – _(drafting)_ Why we built GumPress and who it is designed for.
-- **[Core Concepts](docs/core_concepts.md)** – _(drafting)_ Discover the free Open-Core model, clonability, portability, and how to customize your own stack.
-- **[Stack & Security](docs/stack_security.md)** – _(drafting)_ Included components, privacy commitments, and software integrity.
+- **[Vision & Goals](docs/vision_goals.md)** – _(drafting)_ Why we built GumPress and who it is designed for
+- **[Core Concepts](docs/core_concepts.md)** – _(drafting)_ Discover the free Open-Core model, clonability, portability, and how to customize your own stack
+- **[Stack & Security](docs/stack_security.md)** – _(drafting)_ Included components, privacy commitments, and software integrity
 
 🚧 The documentation is currently being finalized. Sections marked as _drafting_ are being populated.
 

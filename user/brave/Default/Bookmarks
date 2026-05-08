@@ -41,6 +41,16 @@
                "name": "SWAGGER",
                "type": "url",
                "url": "javascript:postMessage('ᐅhttps://wordpress.test/!/swagger/','*')"
+            },
+            {
+               "guid": "ec7df6d3-cf41-4469-aa04-f09cffd3e22d",
+               "id": "8",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "SYSINFO",
+               "type": "url",
+               "url": "javascript:postMessage('ᐅhttps://wordpress.test/!/sysinfo/','*')"
             }
          ],
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",

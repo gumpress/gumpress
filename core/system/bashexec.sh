@@ -15,7 +15,6 @@ case "$ACTION" in
 		echo
 		echo -e "\e[32m   ?\e[90m             Show this help message"
 		echo -e "\e[32m   open\e[90m          Open WordPress dashboard"
-		echo -e "\e[32m   phpinfo\e[90m       Display PHP configuration"
 	 	echo -e "\e[32m   wp\e[90m            Run WP-CLI commands"
 		echo -e "\e[32m   composer\e[90m      Run PHP dependency manager"
 		echo -e "\e[32m   exit\e[90m          Stop all services and quit"
@@ -24,7 +23,7 @@ case "$ACTION" in
 		exit 0
 		;;
 
-	"OPEN_ALIAS"|"PHPINFO_ALIAS")
+	"OPEN_ALIAS"|"PLACEHOLDER")
 		MESSAGE="${ACTION}${2:+#$2}"
 		echo "$MESSAGE" > "$SENTINEL"
 		KILLID=$(ps -ef | awk -v ppid="$PPID" '$2 == ppid {print $3}')
