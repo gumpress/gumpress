@@ -8,4 +8,4 @@
 > *Thank you for your interest in supporting this project!*
 
 ---
-[← Back to Readme](../../../README.md)
+[← Back to Readme](../readme.md)

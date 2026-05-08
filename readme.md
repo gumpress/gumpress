@@ -78,7 +78,7 @@ GumPress is a software bundle that combines a proprietary management engine (**O
 The orchestrator (`gumpress.exe`) is licensed under the **GumPress Software License 1.0**.
 * **Usage**: Free to use, configure, and distribute for personal or commercial development.
 * **Main Restrictions**: Standalone resale and reverse engineering are prohibited. It is not designed for production environments.
-* **Full Terms**: See the [**LICENSE**](./license.md) file.
+* **Full Terms**: See the [**license**](./license.md) file.
 
 ### 2. Third-Party
 
