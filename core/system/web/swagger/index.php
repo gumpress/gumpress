@@ -28,7 +28,7 @@
 		window.onload = () => {
 
 			window.ui = SwaggerUIBundle({
-				url					: 'wp-openapi/',
+				url					: 'openapi/',
 				dom_id				: '#swagger-ui',
 				deepLinking			: true,
 				requestInterceptor: (req) => { req.headers['X-GumPress-Auth'] = '<?php echo getenv("GP_AUTH_SECRET") ?>'; return req; },

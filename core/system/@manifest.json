@@ -47,23 +47,6 @@
 		]
 	},
 	{
-		"website": "https://github.com/moon0326/wp-openapi/",
-		"package": "wp-openapi.zip",
-		"origin": "https://github.com/moon0326/wp-openapi/releases",
-		"updated": "20260218",
-		"changes": {
-			"created": {
-				"key": [ "index.php" ],
-				"why": [ "Implements a bridge between SwaggerUI and wp-openapi" ]
-			}
-		},
-		"⚖️ license": [
-			"GPL v3 | https://www.gnu.org/licenses/gpl-3.0.html",
-			"All rights to the original software belong to their respective owners.",
-			"Any modified or removed components remain subject to the original license."
-		]
-	},
-	{
 		"website": "https://github.com/abbodi1406/vcredist/",
 		"package": "VisualCppRedist_AIO_x86_x64_103.zip",
 		"sources": "https://github.com/abbodi1406/vcredist/releases",

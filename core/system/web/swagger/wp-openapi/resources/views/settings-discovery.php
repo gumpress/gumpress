@@ -1,1 +1,0 @@
-<input type="checkbox" name="wp-openapi-options[enableCallbackDiscovery]" <?php if($checked) {echo 'checked';} ?>/>

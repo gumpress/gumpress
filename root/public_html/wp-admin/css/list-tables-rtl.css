@@ -636,22 +636,6 @@ tr.wp-locked .row-actions .trash {
 	display: none;
 }
 
-.wp-collaborative-editing .locked-info {
-	display: block;
-}
-
-.join-action-text {
-	display: none;
-}
-
-.wp-collaborative-editing .edit-action-text {
-	display: none;
-}
-
-.wp-collaborative-editing .join-action-text {
-	display: inline;
-}
-
 #menu-locations-wrap .widefat {
 	width: 60%;
 }
@@ -1105,6 +1089,7 @@ tr.inline-edit-row td {
 }
 
 .inline-edit-row select {
+	line-height: 2.14285714; /* 30px for 32px height with 14px font */
 	padding-left: 24px;
 }
 
@@ -1610,7 +1595,7 @@ div.action-links,
 }
 
 .plugin-card h3 {
-	margin: 0 0 12px 12px;
+	margin: 0 0 16px 12px;
 	font-size: 18px;
 	line-height: 1.3;
 }

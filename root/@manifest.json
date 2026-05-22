@@ -1,9 +1,9 @@
 [
 	{
 		"website": "https://wordpress.org/",
-		"package": "wordpress-7.0-rc2.zip",
+		"package": "wordpress-7.0.zip",
 		"sources": "https://wordpress.org/download",
-		"updated": "20260404",
+		"updated": "20260521",
 		"changes": {
 		},
 		"⚖️ license": [

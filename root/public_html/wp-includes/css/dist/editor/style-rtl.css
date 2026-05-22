@@ -1147,6 +1147,7 @@ button.font-library__upload-area {
   background: #fff;
   padding: 12px;
   border-top: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
 .global-styles-ui-variations_item {
@@ -5734,10 +5735,6 @@ div.dataviews-view-list {
   padding: 16px;
 }
 
-.editor-private-post-last-revision__button {
-  display: inline-block;
-}
-
 .editor-post-locked-modal__buttons {
   margin-top: 24px;
 }
@@ -5764,6 +5761,7 @@ div.dataviews-view-list {
   padding: 6px 0;
   line-height: 20px;
   hyphens: auto;
+  word-break: break-word;
 }
 
 .editor-post-panel__row-control {
@@ -6047,7 +6045,7 @@ div.dataviews-view-list {
 .revision-diff-markers {
   position: relative;
   flex-shrink: 0;
-  width: 12px;
+  width: max(16px, 1rem);
   background: rgba(0, 0, 0, 0.05);
 }
 .revision-diff-markers .revision-diff-marker {
@@ -6063,10 +6061,10 @@ div.dataviews-view-list {
   background: #00a32a;
 }
 .revision-diff-markers .revision-diff-marker.is-removed {
-  background: #d63638;
+  background: repeating-linear-gradient(-45deg, #d63638, #d63638 3px, rgba(214, 54, 56, 0.45) 3px, rgba(214, 54, 56, 0.45) 6px);
 }
 .revision-diff-markers .revision-diff-marker.is-modified {
-  background: #dba617;
+  background: repeating-linear-gradient(45deg, #dba617, #dba617 3px, rgba(219, 166, 23, 0.45) 3px, rgba(219, 166, 23, 0.45) 6px);
 }
 .revision-diff-markers .revision-diff-marker:hover {
   opacity: 0.7;

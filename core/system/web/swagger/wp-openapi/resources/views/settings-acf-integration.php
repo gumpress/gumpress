@@ -1,1 +1,0 @@
-<input type="checkbox" name="wp-openapi-options[enableACFIntegration]" <?php if($checked) {echo 'checked';} ?>/>

@@ -552,16 +552,6 @@
 		},
 		"menus": {
 			"editor/title/run": [
-				{
-					"command": "extension.php-debug.runEditorContents",
-					"when": "resourceLangId == php && !inDiffEditor && resourceScheme == file",
-					"group": "navigation@1"
-				},
-				{
-					"command": "extension.php-debug.debugEditorContents",
-					"when": "resourceLangId == php && !inDiffEditor && resourceScheme == file",
-					"group": "navigation@2"
-				}
 			],
 			"commandPalette": [
 				{

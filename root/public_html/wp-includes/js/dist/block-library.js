@@ -131,10 +131,10 @@ var wp;
           if (typeof b2 !== "function" && b2 !== null)
             throw new TypeError("Class extends value " + String(b2) + " is not a constructor or null");
           extendStatics(d2, b2);
-          function __269() {
+          function __268() {
             this.constructor = d2;
           }
-          d2.prototype = b2 === null ? Object.create(b2) : (__269.prototype = b2.prototype, new __269());
+          d2.prototype = b2 === null ? Object.create(b2) : (__268.prototype = b2.prototype, new __268());
         };
       })();
       var __assign2 = exports && exports.__assign || function() {
@@ -2451,10 +2451,10 @@ var wp;
           if (typeof b2 !== "function" && b2 !== null)
             throw new TypeError("Class extends value " + String(b2) + " is not a constructor or null");
           extendStatics(d2, b2);
-          function __269() {
+          function __268() {
             this.constructor = d2;
           }
-          d2.prototype = b2 === null ? Object.create(b2) : (__269.prototype = b2.prototype, new __269());
+          d2.prototype = b2 === null ? Object.create(b2) : (__268.prototype = b2.prototype, new __268());
         };
       })();
       var __assign2 = exports && exports.__assign || function() {
@@ -12978,7 +12978,8 @@ var wp;
             "aria-label": (0, import_i18n30.__)(
               "Reply to A WordPress Commenter"
             ),
-            children: (0, import_i18n30.__)("Reply")
+            /* translators: Comment reply button text. */
+            children: (0, import_i18n30._x)("Reply", "verb")
           }
         ) })
       ] }) }) }),
@@ -14240,7 +14241,8 @@ var wp;
       {
         href: "#comment-reply-pseudo-link",
         onClick: (event) => event.preventDefault(),
-        children: (0, import_i18n37.__)("Reply")
+        /* translators: Comment reply button text. */
+        children: (0, import_i18n37._x)("Reply", "verb")
       }
     ) }) });
   }
@@ -18055,12 +18057,14 @@ var wp;
     }
     return matchingVariation;
   }
-  function getIframeSrc(html) {
-    if (!html) {
+  function getBackgroundEmbedHtml(html) {
+    const srcMatch = html?.match(/src=["']([^"']+)["']/);
+    if (!srcMatch) {
       return null;
     }
-    const srcMatch = html.match(/src=["']([^"']+)["']/);
-    return srcMatch ? srcMatch[1] : null;
+    const iframeSrc = srcMatch[1];
+    const backgroundSrc = getBackgroundVideoSrc(iframeSrc);
+    return html.replace(iframeSrc, backgroundSrc);
   }
   function detectProviderFromSrc(src) {
     if (!src) {
@@ -19157,6 +19161,10 @@ var wp;
     );
     const { getSettings: getSettings2 } = (0, import_data30.useSelect)(import_block_editor67.store);
     const { __unstableMarkNextChangeAsNotPersistent } = (0, import_data30.useDispatch)(import_block_editor67.store);
+    const propsRef = (0, import_element24.useRef)({ attributes: attributes2, overlayColor });
+    (0, import_element24.useLayoutEffect)(() => {
+      propsRef.current = { attributes: attributes2, overlayColor };
+    });
     const { media } = (0, import_data30.useSelect)(
       (select9) => {
         return {
@@ -19179,24 +19187,31 @@ var wp;
           return;
         }
         const averageBackgroundColor = await getMediaColor(mediaUrl);
-        let newOverlayColor = overlayColor.color;
-        if (!isUserOverlayColor) {
+        const { attributes: currentAttrs, overlayColor: currentOverlay } = propsRef.current;
+        let newOverlayColor = currentOverlay.color;
+        if (!currentAttrs.isUserOverlayColor) {
           newOverlayColor = averageBackgroundColor;
           __unstableMarkNextChangeAsNotPersistent();
           setOverlayColor(newOverlayColor);
         }
         const newIsDark = compositeIsDark(
-          dimRatio,
+          currentAttrs.dimRatio,
           newOverlayColor,
           averageBackgroundColor
         );
         __unstableMarkNextChangeAsNotPersistent();
         setAttributes({
           isDark: newIsDark,
-          isUserOverlayColor: isUserOverlayColor || false
+          isUserOverlayColor: currentAttrs.isUserOverlayColor || false
         });
       })();
-    }, [mediaUrl]);
+    }, [
+      mediaUrl,
+      __unstableMarkNextChangeAsNotPersistent,
+      setAttributes,
+      setOverlayColor,
+      useFeaturedImage
+    ]);
     const url = useFeaturedImage ? mediaUrl : (
       // Ensure the url is not malformed due to sanitization through `wp_kses`.
       originalUrl?.replaceAll("&amp;", "&")
@@ -19212,13 +19227,14 @@ var wp;
       const averageBackgroundColor = await getMediaColor(
         isImage ? newMedia?.url : void 0
       );
-      let newOverlayColor = overlayColor.color;
-      if (!isUserOverlayColor) {
+      const { attributes: currentAttrs, overlayColor: currentOverlay } = propsRef.current;
+      let newOverlayColor = currentOverlay.color;
+      if (!currentAttrs.isUserOverlayColor) {
         newOverlayColor = averageBackgroundColor;
         setOverlayColor(newOverlayColor);
         __unstableMarkNextChangeAsNotPersistent();
       }
-      const newDimRatio = originalUrl === void 0 && dimRatio === 100 ? 50 : dimRatio;
+      const newDimRatio = currentAttrs.url === void 0 && currentAttrs.dimRatio === 100 ? 50 : currentAttrs.dimRatio;
       const newIsDark = compositeIsDark(
         newDimRatio,
         newOverlayColor,
@@ -19242,7 +19258,7 @@ var wp;
         useFeaturedImage: void 0,
         dimRatio: newDimRatio,
         isDark: newIsDark,
-        isUserOverlayColor: isUserOverlayColor || false
+        isUserOverlayColor: currentAttrs.isUserOverlayColor || false
       });
     };
     const onClearMedia = () => {
@@ -19270,8 +19286,9 @@ var wp;
     };
     const onSetOverlayColor = async (newOverlayColor) => {
       const averageBackgroundColor = await getMediaColor(url);
+      const { attributes: currentAttrs } = propsRef.current;
       const newIsDark = compositeIsDark(
-        dimRatio,
+        currentAttrs.dimRatio,
         newOverlayColor,
         averageBackgroundColor
       );
@@ -19284,9 +19301,10 @@ var wp;
     };
     const onUpdateDimRatio = async (newDimRatio) => {
       const averageBackgroundColor = await getMediaColor(url);
+      const { overlayColor: currentOverlay } = propsRef.current;
       const newIsDark = compositeIsDark(
         newDimRatio,
-        overlayColor.color,
+        currentOverlay.color,
         averageBackgroundColor
       );
       setAttributes({
@@ -19326,15 +19344,11 @@ var wp;
       },
       [url, backgroundType]
     );
-    const embedSrc = (0, import_element24.useMemo)(() => {
+    const embedHtml = (0, import_element24.useMemo)(() => {
       if (backgroundType !== EMBED_VIDEO_BACKGROUND_TYPE || !embedPreview?.html) {
         return null;
       }
-      const iframeSrc = getIframeSrc(embedPreview.html);
-      if (!iframeSrc) {
-        return null;
-      }
-      return getBackgroundVideoSrc(iframeSrc);
+      return getBackgroundEmbedHtml(embedPreview.html);
     }, [embedPreview, backgroundType]);
     const isUploadingMedia = isTemporaryMedia(id, url);
     const isImageBackground = IMAGE_BACKGROUND_TYPE === backgroundType;
@@ -19399,8 +19413,9 @@ var wp;
     const toggleUseFeaturedImage = async () => {
       const newUseFeaturedImage = !useFeaturedImage;
       const averageBackgroundColor = newUseFeaturedImage ? await getMediaColor(mediaUrl) : DEFAULT_BACKGROUND_COLOR;
-      const newOverlayColor = !isUserOverlayColor ? averageBackgroundColor : overlayColor.color;
-      if (!isUserOverlayColor) {
+      const { attributes: currentAttrs, overlayColor: currentOverlay } = propsRef.current;
+      const newOverlayColor = !currentAttrs.isUserOverlayColor ? averageBackgroundColor : currentOverlay.color;
+      if (!currentAttrs.isUserOverlayColor) {
         if (newUseFeaturedImage) {
           setOverlayColor(newOverlayColor);
         } else {
@@ -19408,7 +19423,7 @@ var wp;
         }
         __unstableMarkNextChangeAsNotPersistent();
       }
-      const newDimRatio = dimRatio === 100 ? 50 : dimRatio;
+      const newDimRatio = currentAttrs.dimRatio === 100 ? 50 : currentAttrs.dimRatio;
       const newIsDark = compositeIsDark(
         newDimRatio,
         newOverlayColor,
@@ -19578,24 +19593,26 @@ var wp;
                 style: mediaStyle
               }
             ),
-            isEmbedVideoBackground && embedSrc && /* @__PURE__ */ (0, import_jsx_runtime225.jsx)(
+            isEmbedVideoBackground && embedHtml && /* @__PURE__ */ (0, import_jsx_runtime225.jsx)(
               "div",
               {
                 ref: mediaElement,
                 className: "wp-block-cover__video-background wp-block-cover__embed-background",
                 style: mediaStyle,
                 children: /* @__PURE__ */ (0, import_jsx_runtime225.jsx)(
-                  "iframe",
+                  import_components34.SandBox,
                   {
-                    src: embedSrc,
+                    allowSameOrigin: true,
+                    html: embedHtml,
                     title: "Background video",
-                    frameBorder: "0",
-                    allow: "autoplay; fullscreen"
+                    styles: [
+                      "iframe{position:fixed;top:0;left:0;width:100%;height:100%;}"
+                    ]
                   }
                 )
               }
             ),
-            isEmbedVideoBackground && !embedSrc && isFetchingEmbed && /* @__PURE__ */ (0, import_jsx_runtime225.jsx)(import_components34.Spinner, {}),
+            isEmbedVideoBackground && !embedHtml && isFetchingEmbed && /* @__PURE__ */ (0, import_jsx_runtime225.jsx)(import_components34.Spinner, {}),
             showOverlay && /* @__PURE__ */ (0, import_jsx_runtime225.jsx)(
               "span",
               {
@@ -20973,6 +20990,7 @@ var wp;
       /* @__PURE__ */ (0, import_jsx_runtime234.jsx)(
         import_components40.SandBox,
         {
+          allowSameOrigin: true,
           html,
           scripts,
           title: iframeTitle,
@@ -40500,7 +40518,7 @@ ${js}
   // packages/block-library/build-module/navigation-link/shared/controls.mjs
   var import_components90 = __toESM(require_components(), 1);
   var import_i18n137 = __toESM(require_i18n(), 1);
-  var import_dom6 = __toESM(require_dom(), 1);
+  var import_dom7 = __toESM(require_dom(), 1);
   var import_block_editor154 = __toESM(require_block_editor(), 1);
   var import_data82 = __toESM(require_data(), 1);
   var import_core_data46 = __toESM(require_core_data(), 1);
@@ -40509,6 +40527,8 @@ ${js}
   var import_element75 = __toESM(require_element(), 1);
   var import_data77 = __toESM(require_data(), 1);
   var import_block_editor149 = __toESM(require_block_editor(), 1);
+  var import_dom5 = __toESM(require_dom(), 1);
+  var import_escape_html2 = __toESM(require_escape_html(), 1);
 
   // packages/block-library/build-module/navigation-link/shared/update-attributes.mjs
   var import_escape_html = __toESM(require_escape_html(), 1);
@@ -40628,7 +40648,12 @@ ${js}
   };
 
   // packages/block-library/build-module/navigation-link/shared/use-handle-link-change.mjs
-  function useHandleLinkChange({ clientId, attributes: attributes2, setAttributes }) {
+  function useHandleLinkChange({
+    clientId,
+    attributes: attributes2,
+    setAttributes,
+    allowTextUpdate = false
+  }) {
     const { updateBlockAttributes } = (0, import_data77.useDispatch)(import_block_editor149.store);
     const { hasUrlBinding, createBinding, clearBinding } = useEntityBinding({
       clientId,
@@ -40645,7 +40670,11 @@ ${js}
           type: updatedLink.type,
           id: updatedLink.id
         };
-        if (!attributes2.label || attributes2.label === "") {
+        const currentText = attributes2.label ? (0, import_dom5.__unstableStripHTML)(attributes2.label) : "";
+        const updatedText = updatedLink.title ?? "";
+        const hasTextUpdate = allowTextUpdate && updatedLink.title !== void 0 && updatedText !== currentText;
+        const textUpdateAttributes = hasTextUpdate ? { label: (0, import_escape_html2.escapeHTML)(updatedText) } : {};
+        if (!attributes2.label || attributes2.label === "" || hasTextUpdate) {
           attrs.title = updatedLink.title;
         }
         const willBeCustomLink = !updatedLink.id && hasUrlBinding;
@@ -40655,7 +40684,8 @@ ${js}
             url: updatedLink.url,
             kind: "custom",
             type: "custom",
-            id: void 0
+            id: void 0,
+            ...textUpdateAttributes
           });
         } else {
           const { isEntityLink, attributes: updatedAttributes } = updateAttributes(attrs, setAttributes, attributes2);
@@ -40664,10 +40694,14 @@ ${js}
           } else {
             clearBinding();
           }
+          if (Object.keys(textUpdateAttributes).length) {
+            updateBlockAttributes(clientId, textUpdateAttributes);
+          }
         }
       },
       [
         attributes2,
+        allowTextUpdate,
         clientId,
         hasUrlBinding,
         createBinding,
@@ -40679,7 +40713,7 @@ ${js}
   }
 
   // packages/block-library/build-module/navigation-link/link-ui/index.mjs
-  var import_dom5 = __toESM(require_dom(), 1);
+  var import_dom6 = __toESM(require_dom(), 1);
   var import_components89 = __toESM(require_components(), 1);
   var import_i18n135 = __toESM(require_i18n(), 1);
   var import_block_editor151 = __toESM(require_block_editor(), 1);
@@ -40994,7 +41028,7 @@ ${js}
       () => ({
         url,
         opensInNewTab,
-        title: label && (0, import_dom5.__unstableStripHTML)(label),
+        title: label && (0, import_dom6.__unstableStripHTML)(label),
         kind,
         type,
         id,
@@ -41022,7 +41056,7 @@ ${js}
         if (shouldFocusPane?.current) {
           shouldFocusPane.current.focus();
         } else {
-          const tabbableElements = import_dom5.focus.tabbable.find(
+          const tabbableElements = import_dom6.focus.tabbable.find(
             linkControlWrapperRef.current
           );
           const nextFocusTarget = tabbableElements[0] || linkControlWrapperRef.current;
@@ -41463,7 +41497,7 @@ ${js}
                 {
                   __next40pxDefaultSize: true,
                   label: (0, import_i18n137.__)("Text"),
-                  value: label ? (0, import_dom6.__unstableStripHTML)(label) : "",
+                  value: label ? (0, import_dom7.__unstableStripHTML)(label) : "",
                   onChange: (labelValue) => {
                     setAttributes({ label: labelValue });
                   },
@@ -43763,7 +43797,8 @@ ${js}
     const handleLinkChange = useHandleLinkChange({
       clientId,
       attributes: attributes2,
-      setAttributes
+      setAttributes,
+      allowTextUpdate: true
     });
     const [isInvalid, isDraft] = useIsInvalidLink(
       kind,
@@ -44434,15 +44469,15 @@ ${js}
     const { showSubmenuIcon, maxNestingLevel, submenuVisibility } = context;
     const blockEditingMode = (0, import_block_editor163.useBlockEditingMode)();
     const openSubmenusOnClick = blockEditingMode !== "default" ? true : submenuVisibility === "click";
-    const {
-      clearBinding,
-      createBinding,
-      hasUrlBinding,
-      isBoundEntityAvailable,
-      entityRecord
-    } = useEntityBinding({
+    const { hasUrlBinding, isBoundEntityAvailable, entityRecord } = useEntityBinding({
       clientId,
       attributes: attributes2
+    });
+    const handleLinkChange = useHandleLinkChange({
+      clientId,
+      attributes: attributes2,
+      setAttributes,
+      allowTextUpdate: true
     });
     const { __unstableMarkNextChangeAsNotPersistent, replaceBlock } = (0, import_data89.useDispatch)(import_block_editor163.store);
     const [isLinkOpen, setIsLinkOpen] = (0, import_element82.useState)(false);
@@ -44668,21 +44703,7 @@ ${js}
                 setAttributes({ url: "" });
                 (0, import_a11y4.speak)((0, import_i18n145.__)("Link removed."), "assertive");
               },
-              onChange: (updatedValue) => {
-                const {
-                  isEntityLink,
-                  attributes: updatedAttributes
-                } = updateAttributes(
-                  updatedValue,
-                  setAttributes,
-                  attributes2
-                );
-                if (isEntityLink) {
-                  createBinding(updatedAttributes);
-                } else {
-                  clearBinding();
-                }
-              }
+              onChange: handleLinkChange
             }
           )
         ] }),
@@ -45913,7 +45934,7 @@ ${js}
   var import_block_editor170 = __toESM(require_block_editor(), 1);
   var import_data94 = __toESM(require_data(), 1);
   var import_core_data53 = __toESM(require_core_data(), 1);
-  var import_dom7 = __toESM(require_dom(), 1);
+  var import_dom8 = __toESM(require_dom(), 1);
 
   // packages/block-library/build-module/navigation-link/icons.mjs
   var import_components100 = __toESM(require_components(), 1);
@@ -45979,7 +46000,7 @@ ${js}
                 className: "wp-block-navigation-item__content wp-block-navigation-submenu__toggle",
                 "aria-expanded": "false",
                 dangerouslySetInnerHTML: {
-                  __html: (0, import_dom7.safeHTML)(label)
+                  __html: (0, import_dom8.safeHTML)(label)
                 }
               }
             ),
@@ -45992,7 +46013,7 @@ ${js}
               }),
               href: link,
               dangerouslySetInnerHTML: {
-                __html: (0, import_dom7.safeHTML)(title)
+                __html: (0, import_dom8.safeHTML)(title)
               }
             }
           ),
@@ -47032,33 +47053,33 @@ ${js}
   var import_data97 = __toESM(require_data(), 1);
   var import_notices14 = __toESM(require_notices(), 1);
   var import_i18n156 = __toESM(require_i18n(), 1);
-  var import_dom8 = __toESM(require_dom(), 1);
+  var import_dom9 = __toESM(require_dom(), 1);
   var import_blocks77 = __toESM(require_blocks(), 1);
   var import_jsx_runtime353 = __toESM(require_jsx_runtime(), 1);
   var ALLOWED_MEDIA_TYPES6 = ["audio"];
   var CurrentTrack = ({ track, showImages, onTrackEnd }) => {
     const trackTitle = {
       dangerouslySetInnerHTML: {
-        __html: (0, import_dom8.safeHTML)(track?.title ? track.title : (0, import_i18n156.__)("Untitled"))
+        __html: (0, import_dom9.safeHTML)(track?.title ? track.title : (0, import_i18n156.__)("Untitled"))
       }
     };
     const trackArtist = {
       dangerouslySetInnerHTML: {
-        __html: (0, import_dom8.safeHTML)(
+        __html: (0, import_dom9.safeHTML)(
           track?.artist ? track.artist : (0, import_i18n156.__)("Unknown artist")
         )
       }
     };
     const trackAlbum = {
       dangerouslySetInnerHTML: {
-        __html: (0, import_dom8.safeHTML)(
+        __html: (0, import_dom9.safeHTML)(
           track?.album ? track.album : (0, import_i18n156.__)("Unknown album")
         )
       }
     };
     let ariaLabel;
     if (track?.title && track?.artist && track?.album) {
-      ariaLabel = (0, import_dom8.__unstableStripHTML)(
+      ariaLabel = (0, import_dom9.__unstableStripHTML)(
         (0, import_i18n156.sprintf)(
           /* translators: %1$s: track title, %2$s artist name, %3$s: album name. */
           (0, import_i18n156._x)(
@@ -47071,9 +47092,9 @@ ${js}
         )
       );
     } else if (track?.title) {
-      ariaLabel = (0, import_dom8.__unstableStripHTML)(track.title);
+      ariaLabel = (0, import_dom9.__unstableStripHTML)(track.title);
     } else {
-      ariaLabel = (0, import_dom8.__unstableStripHTML)((0, import_i18n156.__)("Untitled"));
+      ariaLabel = (0, import_dom9.__unstableStripHTML)((0, import_i18n156.__)("Untitled"));
     }
     return /* @__PURE__ */ (0, import_jsx_runtime353.jsxs)(import_jsx_runtime353.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime353.jsxs)("div", { className: "wp-block-playlist__current-item", children: [
@@ -47607,7 +47628,7 @@ ${js}
   var import_data98 = __toESM(require_data(), 1);
   var import_notices15 = __toESM(require_notices(), 1);
   var import_i18n157 = __toESM(require_i18n(), 1);
-  var import_dom9 = __toESM(require_dom(), 1);
+  var import_dom10 = __toESM(require_dom(), 1);
   var import_jsx_runtime355 = __toESM(require_jsx_runtime(), 1);
   var ALLOWED_MEDIA_TYPES7 = ["audio"];
   var ALBUM_COVER_ALLOWED_MEDIA_TYPES = ["image"];
@@ -47707,7 +47728,7 @@ ${js}
           {
             __next40pxDefaultSize: true,
             label: (0, import_i18n157.__)("Artist"),
-            value: artist ? (0, import_dom9.__unstableStripHTML)(artist) : "",
+            value: artist ? (0, import_dom10.__unstableStripHTML)(artist) : "",
             onChange: (artistValue) => {
               setAttributes({ artist: artistValue });
             }
@@ -47718,7 +47739,7 @@ ${js}
           {
             __next40pxDefaultSize: true,
             label: (0, import_i18n157.__)("Album"),
-            value: album ? (0, import_dom9.__unstableStripHTML)(album) : "",
+            value: album ? (0, import_dom10.__unstableStripHTML)(album) : "",
             onChange: (albumValue) => {
               setAttributes({ album: albumValue });
             }
@@ -47729,8 +47750,8 @@ ${js}
           {
             __next40pxDefaultSize: true,
             label: (0, import_i18n157.__)("Title"),
-            value: title ? (0, import_dom9.__unstableStripHTML)(title) : "",
-            placeholder: title ? (0, import_dom9.__unstableStripHTML)(title) : "",
+            value: title ? (0, import_dom10.__unstableStripHTML)(title) : "",
+            placeholder: title ? (0, import_dom10.__unstableStripHTML)(title) : "",
             onChange: (titleValue) => {
               setAttributes({ title: titleValue });
             }
@@ -60136,7 +60157,7 @@ ${js}
   var import_components145 = __toESM(require_components(), 1);
   var import_compose52 = __toESM(require_compose(), 1);
   var import_i18n220 = __toESM(require_i18n(), 1);
-  var import_dom10 = __toESM(require_dom(), 1);
+  var import_dom11 = __toESM(require_dom(), 1);
 
   // packages/block-library/build-module/search/utils.mjs
   var PC_WIDTH_DEFAULT = 50;
@@ -60348,7 +60369,7 @@ ${js}
             type: "button",
             className: buttonClasses,
             style: buttonStyles,
-            "aria-label": buttonText ? (0, import_dom10.__unstableStripHTML)(buttonText) : (0, import_i18n220.__)("Search"),
+            "aria-label": buttonText ? (0, import_dom11.__unstableStripHTML)(buttonText) : (0, import_i18n220.__)("Search"),
             onClick: handleButtonClick,
             ref: buttonRef,
             children: /* @__PURE__ */ (0, import_jsx_runtime421.jsx)(icon_default, { icon: search_default })
@@ -66692,7 +66713,7 @@ ${js}
   // packages/block-library/build-module/table-of-contents/hooks.mjs
   var import_es6 = __toESM(require_es6(), 1);
   var import_data142 = __toESM(require_data(), 1);
-  var import_dom11 = __toESM(require_dom(), 1);
+  var import_dom12 = __toESM(require_dom(), 1);
   var import_element125 = __toESM(require_element(), 1);
   var import_url21 = __toESM(require_url(), 1);
   var import_block_editor257 = __toESM(require_block_editor(), 1);
@@ -66751,7 +66772,7 @@ ${js}
           const canBeLinked = typeof headingPageLink === "string" && typeof headingAttributes.anchor === "string" && headingAttributes.anchor !== "";
           latestHeadings.push({
             // Convert line breaks to spaces, and get rid of HTML tags in the headings.
-            content: (0, import_dom11.__unstableStripHTML)(
+            content: (0, import_dom12.__unstableStripHTML)(
               headingAttributes.content.replace(
                 /(<br *\/?>)+/g,
                 " "

@@ -35,21 +35,28 @@ Just unzip and start. Whenever you want: tinker, customize, rezip, and redistrib
 
 🚧 The documentation is currently being finalized. Sections marked as _drafting_ are being populated.
 
-## Integrity
+## Integrity & Security
 
 GumPress prioritizes transparency. You can verify the orchestrator (`gumpress.exe`) integrity by comparing its **SHA&#8209;256 Hash** with the one
-calculated on your local file using PowerShell `Get-FileHash gumpress.exe -Algorithm SHA256`.
+calculated on your local file using PowerShell `Get-FileHash gumpress.exe -Algorithm SHA256`; moreover you can check its security
+status online via **MetaDefender**.
 
 <table>
   <tr>
 	 <td><b>File</b></td>
 	 <td><code>gumpress.exe</code></td>
-	 <td><b>Hash</b></td>
-	 <td><code><!--HASH-->3614c82aec760fcd9e64bc1fdbf0b03d1faac1b59a04bd10752fddfdf5481432<!--HASH--></code></td>
+  </tr>
+  <tr>
+	 <td><b>SHA-256 Hash</b></td>
+	 <td><code><!--HASH1-->78778d47c96fa0a6df2976d53c504933b46198a05920f5e628613d1ff4c364db<!--HASH1--></code></td>
+  </tr>
+  <tr>
+	 <td><b>MetaDefender</b></td>
+	 <td><!--HASH2--><a href="https://metadefender.com/results/hash/78778d47c96fa0a6df2976d53c504933b46198a05920f5e628613d1ff4c364db"><!--HASH2-->Check Security Status Online</a></td>
   </tr>
 </table>
 
-## Security
+## Notice
 
 > [!IMPORTANT]
 > Windows might display **SmartScreen** warnings during the **first run**.
@@ -113,6 +120,10 @@ For details about versions, licenses, and applied changes, refer to the technica
 	<tr>
 		<td><b>Git</b></td>
 		<td><a href="core/git/@manifest.json">core/git/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>Nodejs</b></td>
+		<td><a href="core/nodejs/@manifest.json">core/nodejs/@manifest.json</a></td>
 	</tr>
 	<tr>
 		<td><b>System</b></td>

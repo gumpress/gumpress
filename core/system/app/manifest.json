@@ -1,9 +1,11 @@
 {
 	"manifest_version": 3,
 	"name": "GumPress",
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwW4L1d8J3v6uYJm4r5xY3+qXq8h2G7W2cJ6jR2W0z0q6kN1QmXj1b2z8LQ0iQ6P3gM3Q6xQjR8mG7wL4o2H6N0d6v7M2nK1gW4z8M3Qw2tP9J7bM0w8kV7lL2zF6Q1mH4nP8vQ2Y7xJ5fK3wQ9mR4nD8zT6kL1pW5sV9hN2cF8gQ3mD7xL6pQ9vK2nR4tM7yJ1wF8dL3nQ6vP2sH5mK8tR1yN4cW7gB0qD3uF6xL9mV2nP5sT8yR1wQ4eK7mH0gC3fJ6lN9pT2vW5xY8zAIDAQAB",
 	"version": "1.0",
-	"permissions": [ "webNavigation", "tabs" ],
+	"permissions": [ "tabs" ],
 	"host_permissions": [ "<all_urls>" ],
+	"externally_connectable": { "matches": ["<all_urls>"] },
 	"background": { "service_worker": "background.js" },
 	"content_scripts": [ { "matches": [ "<all_urls>" ], "js": [ "content.js" ], "run_at": "document_start" } ],
 	"action": { "default_title": "GumPress", "default_icon": "GP_T.png" }

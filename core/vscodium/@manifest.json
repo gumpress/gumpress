@@ -8,10 +8,6 @@
 			"removed": {
 				"key": [ "resources/server/manifest.json" ],
 				"why": [ "Removed to prevent the 'Install as PWA' button from appearing" ]
-			},
-			"created": {
-				"key": [ "wordpress.code-workspace" ],
-				"why": [ "Created to configure the workspace for WordPress development" ]
 			}
 		},
 		"⚖️ license": [
@@ -26,6 +22,10 @@
 		"sources": "",
 		"updated": "20251215",
 		"changes": {
+			"changed": {
+				"key": [ "package.json" ],
+				"why": [ "Cleared 'editor/title/run' array to hide run/debug buttons in PHP editor" ]
+			}
 		},
 		"⚖️ license": [
 			"MIT License | https://marketplace.visualstudio.com/items/xdebug.php-debug/license",
