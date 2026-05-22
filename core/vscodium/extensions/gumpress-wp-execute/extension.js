@@ -5,8 +5,8 @@ const path	 = require('path');
 const fs		 = require('fs');
 const os		 = require('os');
 
-const LOCK_FILE_PATH = path.join(os.tmpdir(), 'gumpress-wp-execute.lock');
 const NAME_FILE_PATH = path.join(os.tmpdir(), 'gumpress-wp-execute.name');
+const DONE_FILE_PATH = path.join(os.tmpdir(), 'gumpress-wp-execute.done');
 
 let isExecuting			  = false;
 let pollingInterval		  = null;
@@ -74,51 +74,37 @@ function activate(context)
 		const filePath		= editor.document.uri.fsPath;
 		const encodedPath = Buffer.from(filePath).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
-		try { fs.unlinkSync(LOCK_FILE_PATH); } catch (e) {}
-		try { fs.unlinkSync(NAME_FILE_PATH); } catch (e) {}
+		try { fs.unlinkSync(NAME_FILE_PATH); } catch (e) { }
+		try { fs.unlinkSync(DONE_FILE_PATH); } catch (e) { }
 
 		fs.writeFileSync(NAME_FILE_PATH, encodedPath, 'utf8');
 
-		const psCommand    = "starting.ps1";
-		const terminalName = "Output WP Execute";
+		const shCommand = "starting.sh";
+		const terminalName = "bash";
 		let terminal = vscode.window.terminals.find(t => t.name === terminalName);
-		
+
 		if (!terminal) {
 			terminal = vscode.window.createTerminal({
-				name: terminalName,
-				shellPath: "powershell.exe",
-				shellArgs: ["-NoLogo", "-NoProfile", "-ExecutionPolicy", "Bypass"]
+				name: terminalName
 			});
 		}
 
-		function startPolling(lockFilePath) {
+		function startPolling(doneFilePath) {
 			if (pollingInterval) return;
-	 
-			let fileDetected = false;
+
 			let startTime = Date.now();
+			const TIMEOUT_MS = 340000; // 333s curl + margine
 
 			pollingInterval = setInterval(() => {
-				// Wait for file creation (5s timeout if PS crashes immediately)
-				if (!fileDetected) {
-					if (fs.existsSync(lockFilePath)) {
-						fileDetected = true;
-					}
-					else if (Date.now() - startTime > 5000) {
-						// PowerShell didn't create the file in time
-						stopAndReset();
-					}
+				// Timeout di emergenza
+				if (Date.now() - startTime > TIMEOUT_MS) {
+					stopAndReset();
 					return;
 				}
-				// File exists, try to open it to see if the lock has been released
-				try {
-					const fd = fs.openSync(lockFilePath, 'r+');
-					fs.closeSync(fd);
-					// If we reach this point, the lock has been removed
+
+				if (fs.existsSync(doneFilePath)) {
+					try { fs.unlinkSync(doneFilePath); } catch (e) { }
 					stopAndReset();
-					try { fs.unlinkSync(lockFilePath); } catch (e) {}
-				}
-				catch (err) {
-					// EBUSY error indicates the script is still running; skipping
 				}
 			}, 500);
 
@@ -131,10 +117,8 @@ function activate(context)
 		}
 
 		terminal.show();
-	//	terminal.sendText(""); 
-	//	terminal.sendText("Clear-Host;");
-		terminal.sendText(psCommand);
-		startPolling(LOCK_FILE_PATH);
+		terminal.sendText(shCommand);
+		startPolling(DONE_FILE_PATH);
 
 	});
 

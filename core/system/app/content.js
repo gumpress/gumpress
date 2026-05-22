@@ -4,6 +4,6 @@ window.addEventListener("message", (event) => {
 	// ᐅ (U+1405, Canadian Syllabics West-Cree Po)
 	if (event.data.startsWith('ᐅ')) {
 		const url = event.data.substring(1);
-		chrome.runtime.sendMessage({ type: "OPEN_OR_FOCUS", url: url });
+		chrome.runtime.sendMessage({ type: "MENU", url: url });
 	}
 });

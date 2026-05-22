@@ -7,4 +7,4 @@
 	ignorecase = true
 [user]
 	name = Current User
-	email = admin@example.com
+	email = admin@wordpress.test

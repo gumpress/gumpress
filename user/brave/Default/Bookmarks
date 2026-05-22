@@ -20,7 +20,7 @@
                },
                "name": "CODE",
                "type": "url",
-               "url": "javascript:postMessage('ᐅhttps://code.wordpress.test/?workspace=/B:/core/(+work+)/conf/wordpress.code-workspace','*')"
+               "url": "javascript:postMessage('ᐅhttps://code.wordpress.test/?workspace=/B:/user/temp/conf/wordpress.code-workspace','*')"
             },
             {
                "guid": "048e330a-177c-456c-9e76-a85e12119867",
@@ -43,8 +43,18 @@
                "url": "javascript:postMessage('ᐅhttps://wordpress.test/!/swagger/','*')"
             },
             {
-               "guid": "ec7df6d3-cf41-4469-aa04-f09cffd3e22d",
+               "guid": "0eb6cbb7-4f13-4a3e-ab42-e1acccea02f1",
                "id": "8",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "LOGVIEW",
+               "type": "url",
+               "url": "javascript:postMessage('ᐅhttps://wordpress.test/!/logview/','*')"
+            },
+            {
+               "guid": "ec7df6d3-cf41-4469-aa04-f09cffd3e22d",
+               "id": "9",
                "meta_info": {
                   "power_bookmark_meta": ""
                },

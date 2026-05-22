@@ -1,3 +1,2 @@
-2026/05/06-10:41:02.831 4738 Reusing MANIFEST B:\user\brave\Default\IndexedDB\https_code.wordpress.test_0.indexeddb.leveldb/MANIFEST-000001
-2026/05/06-10:41:02.832 4738 Recovering log #3
-2026/05/06-10:41:02.835 4738 Reusing old log B:\user\brave\Default\IndexedDB\https_code.wordpress.test_0.indexeddb.leveldb/000003.log 
+2026/05/20-09:41:54.962 6384 Creating DB B:\user\brave\Default\IndexedDB\https_code.wordpress.test_0.indexeddb.leveldb since it was missing.
+2026/05/20-09:41:54.967 6384 Reusing MANIFEST B:\user\brave\Default\IndexedDB\https_code.wordpress.test_0.indexeddb.leveldb/MANIFEST-000001

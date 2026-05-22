@@ -16,6 +16,9 @@
 		},
 		"cosmetic_filtering_migration": true,
 		"dark_mode_migrated": true,
+		"new_tab_page": {
+			"shows_options": 2
+		},
 		"rewards": {
 			"show_brave_rewards_button_in_location_bar": false
 		},
@@ -26,6 +29,11 @@
 		"enable_window_closing_confirm": false,
 		"wallet": {
 			"show_wallet_icon_on_toolbar": false
+		}
+	},
+	"browser": {
+		"theme": {
+			"color_scheme2": 2
 		}
 	},
 	"extensions": {

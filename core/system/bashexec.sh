@@ -11,19 +11,20 @@ case "$ACTION" in
 
 	"?")
 		echo
-		echo -e "\e[90m › GumPress commands:\e[0m"
+		echo -e "\e[90m› GumPress commands:\e[0m"
 		echo
-		echo -e "\e[32m   ?\e[90m             Show this help message"
-		echo -e "\e[32m   open\e[90m          Open WordPress dashboard"
-	 	echo -e "\e[32m   wp\e[90m            Run WP-CLI commands"
-		echo -e "\e[32m   composer\e[90m      Run PHP dependency manager"
-		echo -e "\e[32m   exit\e[90m          Stop all services and quit"
+		echo -e "\e[32m  ?\e[90m           Show this help message"
+	#	echo -e "\e[32m  snapsave\e[90m    Save database snapshot"
+	#	echo -e "\e[32m  snapload\e[90m    Load database snapshot"
+	 	echo -e "\e[32m  wp\e[90m          Run WP-CLI commands"
+		echo -e "\e[32m  composer\e[90m    Run PHP dependency manager"
 		echo
-		echo -e "\e[90m › Additionally, all standard git-bash commands are available.\e[0m"
+		echo -e "\e[90m› Additionally, all standard git-bash commands are available.\e[0m"
+		echo
 		exit 0
 		;;
 
-	"OPEN_ALIAS"|"PLACEHOLDER")
+	"SNAPSAVE_ALIAS"|"SNAPLOAD_ALIAS")
 		MESSAGE="${ACTION}${2:+#$2}"
 		echo "$MESSAGE" > "$SENTINEL"
 		KILLID=$(ps -ef | awk -v ppid="$PPID" '$2 == ppid {print $3}')

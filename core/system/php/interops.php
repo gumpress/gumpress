@@ -6,17 +6,18 @@ declare(strict_types=1);
 
 namespace WordPress\GumPress\Interops;
 
+if (defined('WP_CLI') && WP_CLI) {
+	return;
+}
+
 add_action('init'                      , __NAMESPACE__ . '\\init');
-add_action('admin_notices'             , __NAMESPACE__ . '\\admin_notice');
 add_filter('determine_current_user'    , __NAMESPACE__ . '\\determine_current_user', 20);
-add_filter('rest_cookie_collect_status', __NAMESPACE__ . '\\rest_cookie_collect_status', 100);
 add_action('http_api_curl'             , __NAMESPACE__ . '\\http_api_curl', 10, 3);
 add_filter('http_request_args'			, __NAMESPACE__ . '\\http_request_args', 999, 1);
 add_action('rest_api_init'					, __NAMESPACE__ . '\\rest_api_init', 10);
 
 function init()
 {
-	if ( defined( 'WP_CLI' ) && WP_CLI ) return;
 	if ( is_user_logged_in()			  ) return;
 	if ( basename( $_SERVER['SCRIPT_NAME'] ) === 'wp-login.php' ) {
 		$admin_id = get_first_admin_id();
@@ -32,49 +33,43 @@ function init()
 	}
 }
 
-function admin_notice()
-{
-	if ( ! current_user_can( 'manage_options' ) ) return;
-	global $pagenow;
-	if ( $pagenow !== 'index.php' ) return;
-	$notice_id = 'gumpress_notice_v1';
-	?>
-	<div class="notice notice-info is-dismissible gumpress-local-notice" data-notice-id="<?php echo esc_attr( $notice_id ); ?>">
-		<p>
-			🚀 <strong><?php echo defined('GP_VERSION') ? GP_VERSION : 'Dev Mode'; ?> is here!</strong> ⭐ Leave a star on <a href="https://github.com/gumpress/gumpress/" target="_blank" style="font-weight: 600;">GitHub</a> and ☕ buy us a coffee via <span style="color: var(--wp-admin-theme-color, #2271b1); text-decoration: none; cursor: default; font-weight: 600;">Paddle</span> (coming soon).
-		</p>
-	</div>
-	<script>
-		(function($) {
-			const storageKey = 'dismissed_<?php echo esc_js( $notice_id ); ?>';
-			if (localStorage.getItem(storageKey)) {
-				$('.gumpress-local-notice').hide();
-				return;
-			}
-			$(document).on('click', '.gumpress-local-notice .notice-dismiss', function(){
-				localStorage.setItem(storageKey, '1');
-			});
-		})(jQuery);
-	</script>
-	<?php
-}
-
 function determine_current_user($user_id)
 {
 	if ( $user_id ) return $user_id;
 	if ( is_known_rest_request() ) {
 		$admin_id = get_first_admin_id();
-		if ( $admin_id ) return $admin_id;
+		if ( $admin_id ) {
+			// Auth is injected via determine_current_user (no nonce check triggered)
+			// but WordPress still requires cookie status to be explicitly confirmed!
+			add_filter('rest_cookie_collect_status', '__return_true', 100);
+			return $admin_id;
+		}
 	}
 	return $user_id;
 }
 
-function rest_cookie_collect_status($status)
+function is_known_rest_request()
 {
-	if ( is_user_logged_in() && is_known_rest_request() ) {
-		return true; 
+	$auth_secret = getenv('GP_AUTH_SECRET') ?? '';
+	if ( $auth_secret === '' ) return false;
+	$auth_apikey = $_SERVER['HTTP_X_GUMPRESS_AUTH'] ?? '';
+	if ( $auth_apikey !== '' ) {
+		return hash_equals($auth_secret, $auth_apikey);
 	}
-	return $status;
+	else {
+		$auth_header = $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? '';
+		if ( stripos($auth_header, 'Basic ') === 0 ) {
+			$decoded = base64_decode(substr($auth_header, 6));
+			if ( $decoded && str_contains($decoded, ':') ) {
+				list($__discard__, $auth_apikey) = explode(':', $decoded, 2);
+				if ( hash_equals($auth_secret, $auth_apikey) ) {
+					add_filter('wp_is_application_password_active', '__return_false', 999);
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }
 
 function http_api_curl($ch, $args, $url)
@@ -225,26 +220,6 @@ function resolve_error_type($errno)
 		E_WARNING			  => 'Warning'
 	];
 	return $error_types[$errno] ?? 'Unknown Error (' . (int) $errno . ')';
-}
-
-function is_known_rest_request()
-{
-	if ( !is_rest_request() ) {
-		return false;
-	}
-	$auth_header = $_SERVER['HTTP_X_GUMPRESS_AUTH'] ?? '';
-	$auth_secret = getenv("GP_AUTH_SECRET");
-	return $auth_secret === $auth_header;
-}
-
-function is_rest_request()
-{
-	$is_rest_request =
-		(defined('REST_REQUEST') && REST_REQUEST) ||
-		(defined('DOING_AJAX'  ) && DOING_AJAX  ) ||
-		(str_contains($_SERVER['REQUEST_URI'] ?? '', '/wp-json/'))
-	;
-	return $is_rest_request;
 }
 
 function get_first_admin_id()
