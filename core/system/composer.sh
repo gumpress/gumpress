@@ -3,4 +3,4 @@
  # GumPress - MIT License
 
 echo
-eval "$COMPOSER" '"$@"'
+eval "$GP_COMPOSER" '"$@"'

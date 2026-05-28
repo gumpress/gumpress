@@ -3,4 +3,4 @@
  # GumPress - MIT License
 
 echo
-eval "$WP" '"$@"'
+eval "$GP_WP" '"$@"'

@@ -48,11 +48,11 @@ status online via **MetaDefender**.
   </tr>
   <tr>
 	 <td><b>SHA-256 Hash</b></td>
-	 <td><code><!--HASH1-->78778d47c96fa0a6df2976d53c504933b46198a05920f5e628613d1ff4c364db<!--HASH1--></code></td>
+	 <td><code><!--HASH1-->a3fa336930e668a43b18d51cebad20db96c2f9613642a7565a0ffb58831e4501<!--HASH1--></code></td>
   </tr>
   <tr>
 	 <td><b>MetaDefender</b></td>
-	 <td><!--HASH2--><a href="https://metadefender.com/results/hash/78778d47c96fa0a6df2976d53c504933b46198a05920f5e628613d1ff4c364db"><!--HASH2-->Check Security Status Online</a></td>
+	 <td><!--HASH2--><a href="https://metadefender.com/results/hash/a3fa336930e668a43b18d51cebad20db96c2f9613642a7565a0ffb58831e4501"><!--HASH2-->Check Security Status Online</a></td>
   </tr>
 </table>
 
