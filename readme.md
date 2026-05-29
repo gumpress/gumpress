@@ -23,9 +23,9 @@ Just unzip and start. Whenever you want: tinker, customize, rezip, and redistrib
 
 <br>
 <p align="center">
-	<img src="docs/images/image01.png" alt="GumPress Overview">
-	<br>
-	<!--<em>GumPress Overview</em>-->
+	<img src="docs/images/image01.png" alt="GumPress Overview" width="80%">
+	<br><br>
+	<a href="https://gumpress.github.io/" target="_blank">Watch Overview Video</a>
 </p>
 <br>
 
