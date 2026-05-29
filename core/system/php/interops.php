@@ -16,6 +16,8 @@ add_action('http_api_curl'             , __NAMESPACE__ . '\\http_api_curl', 10, 
 add_filter('http_request_args'			, __NAMESPACE__ . '\\http_request_args', 999, 1);
 add_action('rest_api_init'					, __NAMESPACE__ . '\\rest_api_init', 10);
 
+require_once __DIR__ . '/../../mcp-adapter/mcp-adapter.php';
+
 function init()
 {
 	if ( is_user_logged_in()			  ) return;

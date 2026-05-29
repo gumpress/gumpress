@@ -1,0 +1,15 @@
+[
+	{
+		"website": "https://github.com/wordpress/mcp-adapter/",
+		"package": "mcp-adapter.zip",
+		"sources": "https://github.com/wordpress/mcp-adapter/releases/tag/v0.5.0",
+		"updated": "20260528",
+		"changes": {
+		},
+		"⚖️ license": [
+			"GPL v2 | https://github.com/wordpress/mcp-adapter/blob/trunk/LICENSE.md",
+			"All rights to the original software belong to their respective owners.",
+			"Any modified or removed components remain subject to the original license."
+		]
+	}
+]

@@ -36,7 +36,7 @@ function process_mu_plugin()
 	$mu = getenv("GP_MUHOOK");
 	if ($mu && !file_exists($mu)) {
 		@mkdir(dirname($mu), 0755, true);
-		file_put_contents($mu, '<?php defined("ABSPATH") || die; $mu = getenv("GP_MUFILE"); if ($mu && file_exists($mu)) require_once $mu; ?>', LOCK_EX);
+		file_put_contents($mu, "<?php\n\n/**\n * Description: GumPress | MCP Adapter\n */\n\ndefined('ABSPATH') || die;\n\$mu = getenv('GP_MUFILE');\nif (\$mu && file_exists(\$mu)) require_once \$mu;", LOCK_EX);
 	}
 }
 

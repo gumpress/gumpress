@@ -6,11 +6,9 @@
 :: {
 ::    "mcpServers": {
 ::       "wordpress": {
-::          "command": "B:\\gate\\mcp-servers\\wordpress.cmd",
-::          "args": [ "https://wordpress.test/wp-json/mcp/mcp-adapter-default-server" ],
-::          "env": {}
+::          "command": "B:\\gate\\mcp-servers\\wordpress.cmd"
 ::       }
 ::    }
 :: }
 ::
-:: Test Message: "Verify the connection to wordpress via local MCP server"
+:: Test Message: "Verify the connection to wordpress via local mcp server"

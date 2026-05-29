@@ -48,11 +48,11 @@ status online via **MetaDefender**.
   </tr>
   <tr>
 	 <td><b>SHA-256 Hash</b></td>
-	 <td><code><!--HASH1-->a3fa336930e668a43b18d51cebad20db96c2f9613642a7565a0ffb58831e4501<!--HASH1--></code></td>
+	 <td><code><!--HASH1-->74963882a5bf88049ac8f495bdc44b806bdf6324d3a6eae979c7c741f81638a5<!--HASH1--></code></td>
   </tr>
   <tr>
 	 <td><b>MetaDefender</b></td>
-	 <td><!--HASH2--><a href="https://metadefender.com/results/hash/a3fa336930e668a43b18d51cebad20db96c2f9613642a7565a0ffb58831e4501"><!--HASH2-->Check Security Status Online</a></td>
+	 <td><!--HASH2--><a href="https://metadefender.com/results/hash/74963882a5bf88049ac8f495bdc44b806bdf6324d3a6eae979c7c741f81638a5"><!--HASH2-->Check Security Status Online</a></td>
   </tr>
 </table>
 
@@ -124,6 +124,10 @@ For details about versions, licenses, and applied changes, refer to the technica
 	<tr>
 		<td><b>Nodejs</b></td>
 		<td><a href="core/nodejs/@manifest.json">core/nodejs/@manifest.json</a></td>
+	</tr>
+	<tr>
+		<td><b>MCP Adapter</b></td>
+		<td><a href="core/mcp-adapter/@manifest.json">core/mcp-adapter/@manifest.json</a></td>
 	</tr>
 	<tr>
 		<td><b>System</b></td>

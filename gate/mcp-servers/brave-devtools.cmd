@@ -6,12 +6,9 @@
 :: {
 ::    "mcpServers": {
 ::       "brave-devtools": {
-::          "command": "B:\\gate\\mcp-servers\\brave-devtools.cmd",
-::          "args": [],
-::          "env": {}
+::          "command": "B:\\gate\\mcp-servers\\brave-devtools.cmd"
 ::       }
 ::    }
 :: }
 ::
-:: Test Message: "Verify the connection to brave-devtools via local MCP server"
-
+:: Test Message: "Verify the connection to brave-devtools via local mcp server"
